@@ -10,7 +10,9 @@ function initializeTime() {
     s = "0" + 0;
 
     document.getElementById('demo').innerHTML = m + ":" + s;
-    document.getElementById('buttonText').innerHTML = "Work";
+    const element = document.getElementById('buttonText').innerHTML = "Work";
+    element.className = "btn-1"
+
 }
 
 function startTimer() {
