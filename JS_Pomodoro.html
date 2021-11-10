@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
 </head>
 
 <body onload="initializeTime()">
@@ -28,6 +31,11 @@
     <button onclick="removeTime()"> - </button>
     <button onclick="buttonToggle()"><p id = "buttonText"></p></button>
     <button onclick="addTime()"> + </button>
+    <div class="container">
+        <div class="buttons">
+            <a href="#" class="btn btn-1">New Start</a>
+        </div>
+    </div>
     <script src="src/js/main.js">
         var m;
         var s;
