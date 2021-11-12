@@ -4,6 +4,11 @@ var testing;
 let paused = false;
 let pom = true;
 let started = false;
+let count = 0;
+
+function openLink() {
+    window.open("https://francescocirillo.com/pages/pomodoro-technique", "_blank");
+}
 
 function initializeTime() {
     m = 25;
@@ -11,7 +16,6 @@ function initializeTime() {
 
     document.getElementById('demo').innerHTML = m + ":" + s;
     document.getElementById('buttonText').innerHTML = "Work";
-
 }
 
 function startTimer() {
@@ -83,8 +87,14 @@ function removeTime() {
 
 function buttonToggle() {
     if (pom == true) {
-        m = 5;
-        s = 0;
+        if (count >= 4) {
+            m = 15;
+            s = 0;
+            count = 0;
+        } else {
+            m = 5;
+            s = 0;
+        }
         document.getElementById('buttonText').innerHTML = "Break";
         pom = false;
         clearInterval(testing);
@@ -94,6 +104,7 @@ function buttonToggle() {
     } else {
         m = 25;
         s = 0;
+        count += 1;
         document.getElementById('buttonText').innerHTML = "Work";
         pom = true;
         clearInterval(testing);
