@@ -11,7 +11,7 @@ function initializeTime() {
 
     document.getElementById('demo').innerHTML = m + ":" + s;
     const element = document.getElementById('buttonText').innerHTML = "Work";
-    element.className = "btn-1"
+    element.classList.add("btn-1");
 
 }
 
