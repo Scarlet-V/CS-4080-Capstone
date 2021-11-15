@@ -5,6 +5,7 @@ let paused = false;
 let pom = true;
 let started = false;
 let count = 0;
+let checkboxes = ["leftBox","midLeftBox","midRightBox","rightBox"];
 
 function openLink() {
     window.open("https://francescocirillo.com/pages/pomodoro-technique", "_blank");
@@ -16,7 +17,7 @@ function initializeTime() {
 
     document.getElementById('demo').innerHTML = m + ":" + s;
     document.getElementById('buttonText').innerHTML = "Work";
-}
+} //end initializeTime
 
 function startTimer() {
     if (started == false) {
@@ -28,15 +29,19 @@ function startTimer() {
                 paused = false;
         } else {
             document.getElementById('text').innerHTML = "Break time remaining:";
-            if (paused == false)
-                window.alert("Break time!");
+            if (paused == false){
+		if (count < 4)
+	                window.alert("Break time!");
+		else
+			window.alert("You've earned yourself a nice, long break!");
+	    }
             else
                 paused = false;
         }
         started = true;
         testing = setInterval(decrementTime, 1000);
     }
-}
+} //end startTimer
 
 function printTime() {
     if (m < 0) {
@@ -52,7 +57,7 @@ function printTime() {
         else
             document.getElementById('demo').innerHTML = m + ":" + s;
     }
-}
+} //end printTime
 
 function decrementTime() {
     if (m < 0) {
@@ -67,7 +72,7 @@ function decrementTime() {
         m -= 1;
     }
     printTime();
-}
+} //end decrementTime
 
 function addTime() {
     if (pom == true)
@@ -75,7 +80,7 @@ function addTime() {
     else
         m = m + 5;
     printTime();
-}
+} //end addTime
 
 function removeTime() {
     if (pom == true)
@@ -83,28 +88,35 @@ function removeTime() {
     else
         m = m - 5;
     printTime();
-}
+} //end removeTime
 
 function buttonToggle() {
-    if (pom == true) {
+    document.getElementById("ding").play();
+    if (pom == true) {	
+	checkBox(count);
+	count += 1;
         if (count >= 4) {
-            m = 15;
+            m = 20;
             s = 0;
-            count = 0;
         } else {
             m = 5;
             s = 0;
         }
+	//start break time
         document.getElementById('buttonText').innerHTML = "Break";
         pom = false;
         clearInterval(testing);
         printTime();
         started = false;
         startTimer();
-    } else {
+    } else { //start work time
+	if (count >= 4){	
+            count = 0;
+	    for(i = 0; i < checkboxes.length; i++)
+		checkBox(i,false);
+	}
         m = 25;
-        s = 0;
-        count += 1;
+        s = 0;        
         document.getElementById('buttonText').innerHTML = "Work";
         pom = true;
         clearInterval(testing);
@@ -112,7 +124,7 @@ function buttonToggle() {
         started = false;
         startTimer();
     }
-}
+} //end buttonToggle
 
 function pause() {
     if (paused == false && started == true) {
@@ -120,7 +132,7 @@ function pause() {
         paused = true;
         started = false;
     }
-}
+} //end pause
 
 function reset() {
     pom = true;
@@ -128,4 +140,11 @@ function reset() {
     paused = false;
     clearInterval(testing);
     initializeTime();
-}
+}//end reset
+
+function checkBox(index, checked = true){
+    if(checked)
+	document.getElementById(checkboxes[index]).src = "src/resources/box checked.png";
+    else
+	document.getElementById(checkboxes[index]).src = "src/resources/box unchecked.png";
+} //end checkBox
