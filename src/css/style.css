@@ -22,6 +22,18 @@ body {
     justify-content: center;
 }
 
+.link {
+    background-color: white;
+    border: none;
+    color: blue;
+    padding: 0px 0px;
+    text-decoration: underline;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+
 .buttons {
     display: flex;
     flex-direction: column;

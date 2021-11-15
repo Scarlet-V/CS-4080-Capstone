@@ -4,6 +4,11 @@
     body {
         text-align: center;
     }
+img{
+	display: inline-block;
+	width: 112px;
+	height: 80px;
+}
 </style>
 
 <head>
@@ -17,6 +22,9 @@
 </head>
 
 <body onload="initializeTime()">
+    <audio id="ding">
+	<source src="src/resources/Ding.mp3" type = "audio/mpeg">
+    </audio>
     <br>
     <br>
     <h2>JavaScript Pomodoro Clock</h2>
@@ -27,7 +35,11 @@
     <p id="demo"></p>
     <br>
     <br>
-
+<img id="leftBox" src = "src/resources/box unchecked.png" alt = "Unchecked box">
+<img id="midLeftBox" src = "src/resources/box unchecked.png" alt = "Unchecked box">
+<img id="midRightBox" src = "src/resources/box unchecked.png" alt = "Unchecked box">
+<img id="rightBox" src = "src/resources/box unchecked.png" alt = "Unchecked box">
+<br>
     <button onclick="startTimer()" class="btn btn-1">Start</button>
     <button onclick="pause()" class="btn btn-1">Pause</button>
     <button onclick="reset()" class="btn btn-1">Reset</button>
@@ -36,6 +48,8 @@
     <button onclick="removeTime()" class="btn btn-1"> - </button>
     <button onclick="buttonToggle()" class="btn btn-1"><p id = "buttonText"></p></button>
     <button onclick="addTime()" class="btn btn-1"> + </button>
+    <br>
+    <button class="link" onclick="openLink()">What is the Pomodoro Technique?</button>
     <script src="src/js/main.js">
     </script>
 
