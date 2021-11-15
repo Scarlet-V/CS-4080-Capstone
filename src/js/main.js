@@ -6,6 +6,7 @@ let pom = true;
 let started = false;
 let count = 0;
 let checkboxes = ["leftBox","midLeftBox","midRightBox","rightBox"];
+let ding = document.getElementById("ding");
 
 function openLink() {
     window.open("https://francescocirillo.com/pages/pomodoro-technique", "_blank");
@@ -91,7 +92,9 @@ function removeTime() {
 } //end removeTime
 
 function buttonToggle() {
-    document.getElementById("ding").play();
+    ding.pause();
+    ding.currentTime = 0;
+    ding.play();
     if (pom == true) {	
 	checkBox(count);
 	count += 1;
@@ -138,6 +141,9 @@ function reset() {
     pom = true;
     started = false;
     paused = false;
+    count = 0;
+    for(i = 0; i < checkboxes.length; i++)
+	checkBox(i,false);
     clearInterval(testing);
     initializeTime();
 }//end reset
