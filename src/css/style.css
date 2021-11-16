@@ -48,7 +48,7 @@ body {
 }
 
 
-/* Button 1*/
+/* Main Buttons excluding music*/
 
 .btn-1 {
     overflow: hidden;
@@ -90,6 +90,9 @@ body {
     z-index: 1;
     padding: 10px 25px;
 }
+
+
+/* Music Button*/
 
 .btn-2::after {
     content: "";
