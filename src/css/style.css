@@ -34,10 +34,6 @@ body {
     cursor: pointer;
 }
 
-.audio {
-    box-shadow: 0 0 0 0 rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, .5);
-}
-
 .buttons {
     display: flex;
     flex-direction: column;
@@ -82,5 +78,37 @@ body {
 }
 
 .btn-1:hover::after {
+    transform: rotate(150deg);
+}
+
+.btn-2 {
+    overflow: hidden;
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 0 0 0 rgba(143, 64, 248, 0.5), 0 0 0 0 rgba(39, 200, 255, .5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+    padding: 10px 25px;
+}
+
+.btn-2::after {
+    content: "";
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: -50px;
+    left: -100px;
+    background-color: #ff3cac;
+    background-image: linear-gradient(225deg, #27d86c 0%, #26caf8 50%, #c625d0 100%);
+    z-index: -1;
+    transition: transform .5s ease;
+}
+
+.btn-2:hover {
+    transform: translate(0, -6px);
+    box-shadow: 10px -10px 25px 0 rgba(143, 64, 248, 0.5), -10px 10px 25px 0 rgba(39, 200, 255, .5);
+}
+
+.btn-2:hover::after {
     transform: rotate(150deg);
 }
