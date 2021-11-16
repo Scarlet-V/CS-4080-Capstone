@@ -4,12 +4,14 @@
     body {
         text-align: center;
     }
-    
-    img {
-        display: inline-block;
-        width: 112px;
-        height: 80px;
-    }
+.box{
+	display: inline-block;
+	width: 112px;
+	height: 80px;
+}
+.audiocontrols{
+display: none;
+}
 </style>
 
 <head>
@@ -36,11 +38,11 @@
     <p id="demo"></p>
     <br>
     <br>
-    <img id="leftBox" src="src/resources/box unchecked.png" alt="Unchecked box">
-    <img id="midLeftBox" src="src/resources/box unchecked.png" alt="Unchecked box">
-    <img id="midRightBox" src="src/resources/box unchecked.png" alt="Unchecked box">
-    <img id="rightBox" src="src/resources/box unchecked.png" alt="Unchecked box">
-    <br>
+<img id="leftBox" class="box" src = "src/resources/box unchecked.png" alt = "Unchecked box">
+<img id="midLeftBox" class="box" src = "src/resources/box unchecked.png" alt = "Unchecked box">
+<img id="midRightBox" class="box" src = "src/resources/box unchecked.png" alt = "Unchecked box">
+<img id="rightBox" class="box" src = "src/resources/box unchecked.png" alt = "Unchecked box">
+<br>
     <button onclick="startTimer()" class="btn btn-1">Start</button>
     <button onclick="pause()" class="btn btn-1">Pause</button>
     <button onclick="reset()" class="btn btn-1">Reset</button>
@@ -49,18 +51,10 @@
     <button onclick="buttonToggle()" class="btn btn-1"><p id = "buttonText"></p></button>
     <button onclick="addTime()" class="btn btn-1"> + </button>
     <br>
-    <br>
-    <select id="list" onchange="getSelectValue();">
-        <option value="Song 1">Song 1</option>
-        <option value="Song 2">Song 2</option>
-        <option value="Song 3">Song 3</option>
-        <option value="Song 4">Song 4</option>
-        <option value="Song 5">Song 5</option>
-    </select>
-    <br>
-    <br>
-    <br>
+    <button id="visToggle" onclick = "toggleAudioControls()"><img src = "src/resources/music.png" style = "width:13px;height:24px;" ></button>
     <button class="link" onclick="openLink()">What is the Pomodoro Technique?</button>
+    <br><br>
+    <div id="audio" class="audiocontrols">Audio controls would go here</div>
     <script src="src/js/main.js">
     </script>
 
