@@ -5,10 +5,14 @@
         text-align: center;
     }
     
-    img {
+    .box {
         display: inline-block;
         width: 112px;
         height: 80px;
+    }
+    
+    .audiocontrols {
+        display: none;
     }
 </style>
 
@@ -34,11 +38,11 @@
     <br>
     <p id="demo"></p>
     <br>
-    <img id="leftBox" src="src/resources/box unchecked.png" alt="Unchecked box">
-    <img id="midLeftBox" src="src/resources/box unchecked.png" alt="Unchecked box">
-    <img id="midRightBox" src="src/resources/box unchecked.png" alt="Unchecked box">
-    <img id="rightBox" src="src/resources/box unchecked.png" alt="Unchecked box">
     <br>
+    <img id="leftBox" class="box" src="src/resources/box unchecked.png" alt="Unchecked box">
+    <img id="midLeftBox" class="box" src="src/resources/box unchecked.png" alt="Unchecked box">
+    <img id="midRightBox" class="box" src="src/resources/box unchecked.png" alt="Unchecked box">
+    <img id="rightBox" class="box" src="src/resources/box unchecked.png" alt="Unchecked box">
     <br>
     <button onclick="startTimer()" class="btn btn-1">Start</button>
     <button onclick="pause()" class="btn btn-1">Pause</button>
@@ -48,15 +52,13 @@
     <button onclick="buttonToggle()" class="btn btn-1"><p id = "buttonText"></p></button>
     <button onclick="addTime()" class="btn btn-1"> + </button>
     <br>
+    <button id="visToggle" onclick="toggleAudioControls()" class="btn btn-2"><img src = "src/resources/music.png" style = "width:13px;height:24px;" ></button>
+    <button class="link" onclick="openLink()">What is the Pomodoro Technique?</button>
     <br>
-    <audio controls autoplay loop>
+    <div id="audio" class="audiocontrols"><audio controls autoplay loop>
         <source src="src/resources/On-My-Way-Lofi-Study-Music.mp3" type="audio/mpeg"/>
         Your browser does not support the HTML5 audio tag. Consider updating to a newer browser.
-    </audio>
-    <br>
-    <br>
-    <br>
-    <button class="link" onclick="openLink()">What is the Pomodoro Technique?</button>
+    </audio></div>
     <script src="src/js/main.js">
     </script>
 
