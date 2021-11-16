@@ -28,18 +28,17 @@
     </audio>
     <br>
     <br>
+    <br>
     <h2>JavaScript Pomodoro Clock</h2>
-    <br>
-    <br>
     <p id="text"></p>
     <br>
     <p id="demo"></p>
-    <br>
     <br>
     <img id="leftBox" src="src/resources/box unchecked.png" alt="Unchecked box">
     <img id="midLeftBox" src="src/resources/box unchecked.png" alt="Unchecked box">
     <img id="midRightBox" src="src/resources/box unchecked.png" alt="Unchecked box">
     <img id="rightBox" src="src/resources/box unchecked.png" alt="Unchecked box">
+    <br>
     <br>
     <button onclick="startTimer()" class="btn btn-1">Start</button>
     <button onclick="pause()" class="btn btn-1">Pause</button>
@@ -50,13 +49,10 @@
     <button onclick="addTime()" class="btn btn-1"> + </button>
     <br>
     <br>
-    <select id="list" onchange="getSelectValue();">
-        <option value="Song 1">Song 1</option>
-        <option value="Song 2">Song 2</option>
-        <option value="Song 3">Song 3</option>
-        <option value="Song 4">Song 4</option>
-        <option value="Song 5">Song 5</option>
-    </select>
+    <audio controls autoplay loop>
+        <source src="src/resources/On-My-Way-Lofi-Study-Music.mp3" type="audio/mpeg"/>
+        Your browser does not support the HTML5 audio tag. Consider updating to a newer browser.
+    </audio>
     <br>
     <br>
     <br>
