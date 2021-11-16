@@ -153,3 +153,9 @@ function checkBox(index, checked = true) {
     else
         document.getElementById(checkboxes[index]).src = "src/resources/box unchecked.png";
 } //end checkBox
+
+function getSelectValue() {
+    var selectedValue = document.getElementById("list").value;
+    console.log(selectedValue);
+}
+getSelectValue();
