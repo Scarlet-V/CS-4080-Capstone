@@ -1,5 +1,6 @@
 var m;
 var s;
+var h;
 var testing;
 let paused = false;
 let pom = true;
@@ -13,10 +14,12 @@ function openLink() {
 }
 
 function initializeTime() {
+    h = 0;
     m = 25;
     s = "0" + 0;
-
-    document.getElementById('demo').innerHTML = m + ":" + s;
+    document.getElementById('hoursLi').innerHTML = '';
+    document.getElementById('mins').innerHTML = m ;
+    document.getElementById('secs').innerHTML = s;
     document.getElementById('buttonText').innerHTML = "Work";
 } //end initializeTime
 
@@ -45,18 +48,37 @@ function startTimer() {
 } //end startTimer
 
 function printTime() {
-    if (m < 0) {
-        document.getElementById('demo').innerHTML = "00:00"
-    } else if (m < 10) {
-        if (s < 10)
-            document.getElementById('demo').innerHTML = "0" + m + ":0" + s;
-        else
-            document.getElementById('demo').innerHTML = "0" + m + ":" + s;
+    if(h > 0){
+        document.getElementById('hoursLi').innerHTML = '<span id=\'hours\'></span>Hours';
+        if(h < 10)
+            document.getElementById('hours').innerHTML = "0" + h;
+        else 
+            document.getElementById('hours').innerHTML = h;
     } else {
-        if (s < 10)
-            document.getElementById('demo').innerHTML = m + ":0" + s;
-        else
-            document.getElementById('demo').innerHTML = m + ":" + s;
+        document.getElementById('hoursLi').innerHTML = '';
+    }
+    if (m < 0) {
+        document.getElementById('mins').innerHTML = "0";
+        document.getElementById('secs').innerHTML = "0";
+    } else if (m < 10) {
+        if (s < 10 && s != 0){
+            document.getElementById('mins').innerHTML = "0" + m ;
+            document.getElementById('secs').innerHTML = "0" + s;
+        }
+        else{
+            document.getElementById('mins').innerHTML = "0" + m;
+            document.getElementById('secs').innerHTML = s;
+
+        }
+    } else {
+        if (s < 10 && s != 0){
+            document.getElementById('mins').innerHTML = m ;
+            document.getElementById('secs').innerHTML = "0" + s ;
+        }
+        else{
+            document.getElementById('mins').innerHTML = m;
+            document.getElementById('secs').innerHTML = s;
+        }
     }
 } //end printTime
 
@@ -80,14 +102,29 @@ function addTime() {
         m = m + 25;
     else
         m = m + 5;
+
+    if(m > 60){
+        h += 1;
+        m -= 60;
+    }
     printTime();
 } //end addTime
 
 function removeTime() {
-    if (pom == true)
-        m = m - 25;
-    else
-        m = m - 5;
+    if (pom == true){
+        if(m < 25 && h > 0){
+            h--;
+            m += 60 - 25;
+        } else 
+            m -= 25;
+    }
+    else{
+        if(m < 5 && h > 0){
+            h--;
+            m += 60 - 5;
+        }
+            m -= 5;
+    }
     printTime();
 } //end removeTime
 

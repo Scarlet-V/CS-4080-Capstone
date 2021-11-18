@@ -24,20 +24,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="initializeTime()">
     <audio id="ding">
 	<source src="src/resources/Ding2.mp3" type = "audio/mpeg">
     </audio>
-    <br>
-    <br>
-    <br>
-    <h2>JavaScript Pomodoro Clock</h2>
-    <p id="text"></p>
-    <br>
-    <p id="demo"></p>
-    <br>
+    <div class="container"></div>
+    <h1 id="headline">JavaScript Pomodoro Clock</h1>
+    <div>
+        <span id="text"></span>
+      <ul>
+        <li id = 'hoursLi'></li>
+        <li><span id="mins"></span>Minutes</li>
+        <li><span id="secs"></span>Seconds</li>
+      </ul>
+    </div>
     <br>
     <img id="leftBox" class="box" src="src/resources/box unchecked.png" alt="Unchecked box">
     <img id="midLeftBox" class="box" src="src/resources/box unchecked.png" alt="Unchecked box">
